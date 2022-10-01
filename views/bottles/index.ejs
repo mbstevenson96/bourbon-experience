@@ -1,8 +1,27 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
-<h1>Its Working</h1>
+<h1>My Inventory</h1>
 
-
+<main>
+  <table>
+    <thead>
+      <tr>
+        <th>Title of Bottle:</th>
+        <th>Distillery:</th>
+        <th>Size:</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% bottles.forEach(bottle => { %>
+        <tr>
+          <td><%= bottle.title %></td>
+          <td><%= bottle.distillery %></td>
+          <td><%= bottle.size %></td>
+        </tr>
+      <% }) %> 
+    </tbody>
+  </table>
+</main>
 
 <%- include('../partials/footer') %>
