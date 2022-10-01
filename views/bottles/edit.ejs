@@ -1,0 +1,48 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/bottles/new.css" />
+<%- include('../partials/nav') %>
+
+<main>
+  <h1>Edit <%= bottle.title %></h1>
+  <form action="/bottles/<%= bottle._id %>?_method=PUT" method="POST">
+    <label>Title of Bottle:
+      <input type="text" name="title" id="title-input">
+    </label>
+    <label>Distillery:
+      <input type="text" name="distillery" id="distillery-input">
+    </label>
+    <label>Size:
+      <input type="number" name="size" id="size-input">
+    </label>
+    <label>Notes:
+      <input type="text" name="notes" id="notes-input">
+    </label>
+    <label>Type (Bourbon, Rye, Wheated):
+      <input type="text" name="type" id="type-input">
+    </label>
+    <label>Mash Bill:
+      <input type="text" name="mash" id="mash-input">
+    </label>
+    <label>Proof:
+      <input type="number" name="proof" id="proof-input">
+    </label>
+    <label>Barrel Strength:
+      <input type="checkbox" name="strength" id="strength-input">
+    </label>
+    <label>Color:
+      <input type="text" name="color" id="color-input">
+    </label>
+    <label>Hug:
+      <input type="text" name="hug" id="hug-input">
+    </label>
+    <label>On the Tongue:
+      <input type="text" name="flavor" id="flavor-input">
+    </label>
+    <label>Quantity Owned:
+      <input type="number" name="quantity" id="quantity-input">
+    </label>
+    <button type="submit">Add Bottle to Inventory</button>
+  </form>
+</main>
+
+<%- include('../partials/footer') %>

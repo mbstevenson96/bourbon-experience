@@ -3,19 +3,26 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <h1><%= title %></h1>
-  <h3>Bottle #<%= bottle._id %></h3>
-  <section>
-    <p>Distillery: <%= bottle.distillery %></p>
-    <p>Size: <%= bottle.size %>ml</p>
-    <p>Notes: <%= bottle.notes %></p>
-    <p>Type: <%= bottle.type %></p>
-    <p>Mash Bill: <%= bottle.mash %></p>
-    <p>Proof: <%= bottle.proof %>%</p>
-    <p>Barrel Strength: <%= bottle.strength ? 'Yes' : 'No' %></p>
-    <p>Color: <%= bottle.color %></p>
-    <p>Hug: <%= bottle.hug %></p>
-    <p>On the Tongue: <%= bottle.flavor %></p>
+  <% if (user) { %>
+    <h1><%= title %></h1>
+    <h3>Bottle #<%= bottle._id %></h3>
+    <section>
+      <p>Distillery: <%= bottle.distillery %></p>
+      <p>Size: <%= bottle.size %>ml</p>
+      <p>Notes: <%= bottle.notes %></p>
+      <p>Type: <%= bottle.type %></p>
+      <p>Mash Bill: <%= bottle.mash %></p>
+      <p>Proof: <%= bottle.proof %>%</p>
+      <p>Barrel Strength: <%= bottle.strength ? 'Yes' : 'No' %></p>
+      <p>Color: <%= bottle.color %></p>
+      <p>Hug: <%= bottle.hug %></p>
+      <p>On the Tongue: <%= bottle.flavor %></p>
+  <% }  %>
+  <% if (bottle.owner.equals(user?.profile._id)) { %>
+    <a href="/bottles/<%= bottle._id %>/edit">
+      <button>Edit This Bottle</button>
+    </a>
+  <% } %>
   </section>
 </main>
 

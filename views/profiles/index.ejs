@@ -4,12 +4,13 @@
 <main>
   <h1>Welcome to <%= user.profile.name %>'s profile!</h1>
   <h3><%= user.profile.name %>'s Inventory</h3>
-  <button>View Inventory</button>
+  <button><a href="/bottles"><%= `${user.profile.name}'s Inventory` %></a></button>
+
   <button>View Wish List</button>
 
 
   <% if (user) { %>
-    <button>Add Bottle</button>
+    <button><a href="/bottles/new">Add Bottle</a></button>
   <% } %>
 </main>
 

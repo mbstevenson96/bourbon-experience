@@ -50,6 +50,20 @@ function show(req, res) {
   })
 }
 
+function edit(req, res) {
+  Bottle.findById(req.params.id)
+  .then(bottle => {
+    res.render('bottles/edit', {
+      bottle,
+      title: `Edit ${bottle.title}`
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
+
 function deleteBottle(req, res) {
   console.log('this is my delete function');
   Bottle.findByIdAndDelete(req.params.id)
@@ -75,5 +89,6 @@ export {
   newBottle as new,
   create,
   show,
+  edit,
   deleteBottle as delete,
 }
