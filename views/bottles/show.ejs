@@ -11,8 +11,8 @@
     <p>Notes: <%= bottle.notes %></p>
     <p>Type: <%= bottle.type %></p>
     <p>Mash Bill: <%= bottle.mash %></p>
-    <p>Proof: <%= bottle.proof %></p>
-    <p>Barrel Strength: <%= bottle.strength %></p>
+    <p>Proof: <%= bottle.proof %>%</p>
+    <p>Barrel Strength: <%= bottle.strength ? 'Yes' : 'No' %></p>
     <p>Color: <%= bottle.color %></p>
     <p>Hug: <%= bottle.hug %></p>
     <p>On the Tongue: <%= bottle.flavor %></p>

@@ -17,6 +17,7 @@ const bottleSchema = new Schema({
   color: String,
   hug: String,
   flavor: String,
+  quantity: Number,
   owner: { type: Schema.Types.ObjectId, ref: "Profile" }
 
 }, {
