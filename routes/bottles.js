@@ -6,6 +6,7 @@ const router = Router()
 
 router.get('/', bottlesCtrl.index)
 router.get('/new', isLoggedIn, bottlesCtrl.new)
+router.get('/:id', bottlesCtrl.show)
 
 router.post('/',isLoggedIn, bottlesCtrl.create)
 

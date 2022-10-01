@@ -1,0 +1,22 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/bottles/new.css" />
+<%- include('../partials/nav') %>
+
+<main>
+  <h1><%= title %></h1>
+  <h3>Bottle #<%= bottle._id %></h3>
+  <section>
+    <p>Distillery: <%= bottle.distillery %></p>
+    <p>Size: <%= bottle.size %>ml</p>
+    <p>Notes: <%= bottle.notes %></p>
+    <p>Type: <%= bottle.type %></p>
+    <p>Mash Bill: <%= bottle.mash %></p>
+    <p>Proof: <%= bottle.proof %></p>
+    <p>Barrel Strength: <%= bottle.strength %></p>
+    <p>Color: <%= bottle.color %></p>
+    <p>Hug: <%= bottle.hug %></p>
+    <p>On the Tongue: <%= bottle.flavor %></p>
+  </section>
+</main>
+
+<%- include('../partials/footer') %>

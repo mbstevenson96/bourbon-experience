@@ -34,9 +34,26 @@ function create(req, res) {
   })
 }
 
+function show(req, res) {
+  console.log('this is my show function');
+  Bottle.findById(req.params.id)
+  .populate('owner')
+  .then(bottle => {
+    res.render('bottles/show', {
+      bottle,
+      title: `${bottle.title}`
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
+
 
 export {
   index,
   newBottle as new,
   create,
+  show,
 }
