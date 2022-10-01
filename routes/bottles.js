@@ -5,7 +5,7 @@ import { isLoggedIn } from '../middleware/middleware.js'
 const router = Router()
 
 router.get('/', bottlesCtrl.index)
-
+router.get('/new', bottlesCtrl.new)
 
 
 

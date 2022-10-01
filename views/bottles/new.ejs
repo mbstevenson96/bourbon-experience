@@ -1,0 +1,64 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/bottles/new.css" />
+<%- include('../partials/nav') %>
+
+<main>
+  <h1><%= title %></h1>
+  <form action="/bottles" method="POST">
+    <label>Title of Bottle:
+      <input type="text" name="title" id="title-input">
+    </label>
+    <label>Distillery:
+      <input type="text" name="distillery" id="distillery-input">
+    </label>
+    <label>Size:
+      <input type="number" name="size" id="size-input">
+    </label>
+    <label>Notes:
+      <input type="text" name="notes" id="notes-input">
+    </label>
+    <div id="type-div">Type of Bottle:
+      <label for="type-input1">Bourbon
+        <input type="checkbox" name="type" id="type-input1">
+      </label>
+      <label for="type-input1">Rye
+        <input type="checkbox" name="type" id="type-input2">
+      </label>
+      <label for="type-input1">Wheated
+        <input type="checkbox" name="type" id="type-input3">
+      </label>
+    </div>
+    <div id="mash-div">Mash Bill:
+      <label for="mash-input1">% wheat
+        <input type="number" name="mash" id="mash-input1">
+      </label>
+      <label for="mash-input2">% barley
+        <input type="number" name="mash" id="mash-input2">
+      </label>
+      <label for="mash-input3">% corn
+        <input type="number" name="mash" id="mash-input3">
+      </label>
+      <label for="mash-input4">% rye
+        <input type="number" name="mash" id="mash-input4">
+      </label>
+    </div>
+    <label>Proof:
+      <input type="number" name="proof" id="proof-input">
+    </label>
+    <label>Barrel Strength:
+      <input type="checkbox" name="strength" id="strength-input1">
+    </label>
+    <label>Color:
+      <input type="text" name="color" id="color-input">
+    </label>
+    <label>Hug:
+      <input type="text" name="hug" id="hug-input">
+    </label>
+    <label>On the Tongue:
+      <input type="text" name="flavor" id="flavor-input">
+    </label>
+    <button type="submit">Add Bottle to Inventory</button>
+  </form>
+</main>
+
+<%- include('../partials/footer') %>

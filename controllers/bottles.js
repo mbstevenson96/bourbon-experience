@@ -1,7 +1,6 @@
 import { Bottle } from "../models/bottle.js";
 
 function index(req, res) {
-  console.log('this is my index function');
   Bottle.find({})
   .then(bottles => {
     res.render('bottles/index', {
@@ -15,7 +14,14 @@ function index(req, res) {
   })
 }
 
+function  newBottle(req, res) {
+  res.render('bottles/new', {
+    title: 'Add Bottle'
+  })
+}
+
 
 export {
   index,
+  newBottle as new,
 }
