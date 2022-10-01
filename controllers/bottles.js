@@ -50,10 +50,30 @@ function show(req, res) {
   })
 }
 
+function deleteBottle(req, res) {
+  console.log('this is my delete function');
+  Bottle.findByIdAndDelete(req.params.id)
+  .then(bottle => {
+    if (bottle.owner.equals(req.user.profile._id)) {
+      bottle.delete()
+      .then(deleteBottle => {
+        res.redirect('/bottles')
+      })
+    } else {
+      throw new Error('NOT AUTHORIZED')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
+
 
 export {
   index,
   newBottle as new,
   create,
   show,
+  deleteBottle as delete,
 }

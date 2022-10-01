@@ -10,7 +10,7 @@ router.get('/:id', bottlesCtrl.show)
 
 router.post('/',isLoggedIn, bottlesCtrl.create)
 
-
+router.delete('/:id', isLoggedIn, bottlesCtrl.delete)
 
 
 
