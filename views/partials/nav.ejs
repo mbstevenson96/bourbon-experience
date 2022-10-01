@@ -5,6 +5,18 @@
 <body>
   <nav>
     <% if (user) { %>
+      <a href="/bottles" <%- title==='My Profile' ? 'class="active"' : '' %>
+        >
+        My Profile
+      </a>
+      <!-- <a href="/bottles" <%- title==='My Inventory' ? 'class="active"' : '' %>
+        >
+        My Wish List
+      </a>
+      <a href="/bottles" <%- title==='My Inventory' ? 'class="active"' : '' %>
+        >
+        All Profiles
+      </a> -->
       <a href="/auth/logout" class="right">
         <button type="submit">Logout</button>
       </a>
