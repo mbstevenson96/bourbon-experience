@@ -21,8 +21,22 @@ function  newBottle(req, res) {
   })
 }
 
+function create(req, res) {
+  req.body.owner = req.user.profile._id
+  req.body.strength = !!req.body.strength
+  Bottle.create(req.body)
+  .then(bottle => {
+    res.redirect(`/bottles`)
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
+
 
 export {
   index,
   newBottle as new,
+  create,
 }

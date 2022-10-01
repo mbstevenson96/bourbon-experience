@@ -7,13 +7,18 @@ const bottleSchema = new Schema({
   distillery: String,
   size: Number,
   notes: String,
-  type: Boolean,
-  mash: Number,
+  type: {
+    type: String, 
+    match: /[bourbon, rye, wheated]\d?/
+  },
+  mash: String,
   proof: Number,
   strength: Boolean,
   color: String,
   hug: String,
   flavor: String,
+  owner: { type: Schema.Types.ObjectId, ref: "Profile" }
+
 }, {
   timestamps: true
 })

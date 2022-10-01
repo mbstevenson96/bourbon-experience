@@ -7,6 +7,10 @@ const router = Router()
 router.get('/', bottlesCtrl.index)
 router.get('/new', isLoggedIn, bottlesCtrl.new)
 
+router.post('/',isLoggedIn, bottlesCtrl.create)
+
+
+
 
 
 export {
