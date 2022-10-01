@@ -1,17 +1,22 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
-<main>
-  <h1>Welcome to <%= user.profile.name %>'s profile!</h1>
-  <h3><%= user.profile.name %>'s Inventory</h3>
-  <button><a href="/bottles"><%= `${user.profile.name}'s Inventory` %></a></button>
-
-  <button>View Wish List</button>
-
-
-  <% if (user) { %>
-    <button><a href="/bottles/new">Add Bottle</a></button>
-  <% } %>
+<main class="main">
+  <div class="card-container">
+    <% profiles.forEach(profile => { %>
+      <a class="text-decoration-none" href="/profiles/<%= profile._id %>">
+        <div class="card">
+          <img 
+            src="<%= profile.avatar %>" 
+            alt="<%= profile.name %>'s avatar"
+          >
+          <div class="card-body">
+            <h1 class="card-title"><%= profile.name %></h1>
+          </div>
+        </div>
+      </a>
+    <% }) %>
+  </div>
 </main>
 
 

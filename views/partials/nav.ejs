@@ -5,9 +5,13 @@
 <body>
   <nav>
     <% if (user) { %>
-      <a href="/profiles" <%- title==='My Profile' ? 'class="active"' : '' %>
+      <a href="/profiles/<%= user.profile._id %>" <%- title==='My Profile' ? 'class="active"' : '' %>
         >
         My Profile
+      </a>
+      <a href="/profiles" <%- title==='All Profiles' ? 'class="active"' : '' %>
+        >
+        All Profiles
       </a>
       <a href="/bottles" <%- title==='My Inventory' ? 'class="active"' : '' %>
         >

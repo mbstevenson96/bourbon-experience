@@ -1,0 +1,18 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<main>
+  <h1>Welcome to <%= isSelf ? "you" : profile.name %>'s profile!</h1>
+  <h3><%= profile.name %>'s Inventory</h3>
+  <button><a href="/bottles"><%= `${profile.name}'s Inventory` %></a></button>
+
+  <button>View Wish List</button>
+
+  <% if (isSelf) { %>
+    <button><a href="/bottles/new">Add Bottle</a></button>
+  <% } %>
+</main>
+
+
+
+<%- include('../partials/footer') %>
