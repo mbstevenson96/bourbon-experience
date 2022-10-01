@@ -1,11 +1,12 @@
 import { Router } from 'express'
-import * as bottlesCtrl from '../controllers/bottles.js'
+import * as profilesCtrl from '../controllers/profiles.js'
 import { isLoggedIn } from '../middleware/middleware.js'
+
 
 const router = Router()
 
+router.get('/', profilesCtrl.index)
 
-router.get('/new', isLoggedIn, bottlesCtrl.new)
 
 
 

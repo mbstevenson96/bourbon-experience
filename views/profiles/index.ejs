@@ -1,0 +1,18 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<main>
+  <h1>Welcome to <%= user.profile.name %>'s profile!</h1>
+  <h3><%= user.profile.name %>'s Inventory</h3>
+  <button>View Inventory</button>
+  <button>View Wish List</button>
+
+
+  <% if (user) { %>
+    <button>Add Bottle</button>
+  <% } %>
+</main>
+
+
+
+<%- include('../partials/footer') %>
