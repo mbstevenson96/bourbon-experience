@@ -9,7 +9,10 @@ router.get('/new', isLoggedIn, bottlesCtrl.new)
 router.get('/:id', bottlesCtrl.show)
 router.get('/:id/edit', isLoggedIn, bottlesCtrl.edit)
 
-router.post('/',isLoggedIn, bottlesCtrl.create)
+router.patch('/:id', isLoggedIn, bottlesCtrl.update)
+
+router.post('/', isLoggedIn, bottlesCtrl.create)
+router.post('/bottles/:id/reviews', isLoggedIn, bottlesCtrl.createReview)
 
 router.delete('/:id', isLoggedIn, bottlesCtrl.delete)
 

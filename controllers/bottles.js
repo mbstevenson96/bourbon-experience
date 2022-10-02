@@ -35,7 +35,6 @@ function create(req, res) {
 }
 
 function show(req, res) {
-  console.log('this is my show function');
   Bottle.findById(req.params.id)
   .populate('owner')
   .then(bottle => {
@@ -64,8 +63,45 @@ function edit(req, res) {
   })
 }
 
+function update(req, res) {
+  Bottle.findById(req.params.id)
+  .then(bottle => {
+    if (bottle.owner.equals(req.user.profile._id)){
+      bottle.updateOne(req.body)
+      .then(updatedBottle => {
+        res.redirect(`/bottles/${bottle._id}`)
+      })
+    } else {
+      throw new Error('NOT AUTHORIZED')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
+
+function createReview(req, res) {
+  Bottle.findById(req.params.id)
+  .populate('review')
+  .then(bottle => {
+    bottle.review.push(req.body)
+    bottle.save()
+    .then(() => {
+      res.redirect(`/bottles/${bottle._id}`)
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/')
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
+
 function deleteBottle(req, res) {
-  console.log('this is my delete function');
   Bottle.findByIdAndDelete(req.params.id)
   .then(bottle => {
     if (bottle.owner.equals(req.user.profile._id)) {
@@ -90,5 +126,7 @@ export {
   create,
   show,
   edit,
+  update,
+  createReview,
   deleteBottle as delete,
 }
