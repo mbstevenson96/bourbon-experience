@@ -28,7 +28,7 @@ const bottleSchema = new Schema({
   hug: String,
   flavor: String,
   quantity: Number,
-  review: [reviewSchema],
+  reviews: [reviewSchema],
   owner: { type: Schema.Types.ObjectId, ref: "Profile" }
 
 }, {

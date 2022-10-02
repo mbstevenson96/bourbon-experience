@@ -15,6 +15,7 @@ router.post('/', isLoggedIn, bottlesCtrl.create)
 router.post('/bottles/:id/reviews', isLoggedIn, bottlesCtrl.createReview)
 
 router.delete('/:id', isLoggedIn, bottlesCtrl.delete)
+router.delete('/:bottleId/reviews/:reviewId', isLoggedIn, bottlesCtrl.deleteReview)
 
 
 

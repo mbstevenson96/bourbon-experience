@@ -36,7 +36,7 @@ function create(req, res) {
 
 function show(req, res) {
   Bottle.findById(req.params.id)
-  .populate('owner')
+  .populate({ path: 'reviews', select: 'author'})
   .then(bottle => {
     res.render('bottles/show', {
       bottle,
@@ -82,10 +82,18 @@ function update(req, res) {
 }
 
 function createReview(req, res) {
+  req.body.author = req.user.profile._id
   Bottle.findById(req.params.id)
-  .populate('review')
+  .populate({
+    path: 'reviews',
+    select: 'author',
+    populate: {
+      path: 'profile',
+      select: 'name'
+    }
+  })
   .then(bottle => {
-    bottle.review.push(req.body)
+    bottle.reviews.push(req.body)
     bottle.save()
     .then(() => {
       res.redirect(`/bottles/${bottle._id}`)
@@ -119,6 +127,25 @@ function deleteBottle(req, res) {
   })
 }
 
+function deleteReview(req, res) {
+  Bottle.findById(req.params.bottleId)
+  .then(bottle => {
+    bottle.reviews.id(req.params.reviewId).remove()
+    bottle.save()
+    .then(() => {
+      res.redirect(`/bottles/${bottle._id}`)
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/')
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
+
 
 export {
   index,
@@ -129,4 +156,5 @@ export {
   update,
   createReview,
   deleteBottle as delete,
+  deleteReview,
 }

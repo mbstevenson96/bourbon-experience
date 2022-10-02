@@ -38,34 +38,36 @@
     <input id="smoothness-input" type="text" name="smoothness" value="<%= bottle.smoothness %>">
   </label>
   <label for="content-textarea">Comment:
-    <input id="comment-input" type="text" name="comment" value="<%= bottle.comment %>" autocomplete="off">
+    <input id="comment-input" type="text" name="comment" value="<%= bottle.comment %>">
   </label>
     <button id="add-review-btn" type="submit">Add Review</button>
   </form>
-  <% if (bottle.review.length) { %>
-    <table id="review-info">
-      <thead>
-        <tr>
-          <th>Rating:</th>
-          <th>Smooth or Aggressive:</th>
-          <th>Author:</th>
-          <th>Comment:</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% bottle.review.forEach(bottle => { %>
+  <% if (bottle.reviews.length) { %>
+    <table id="bottle-reviews">
+      <% bottle.reviews.forEach(review => { %>
           <tr>
-            <td><%= bottle.rating %></td>
-            <td><%= bottle.smoothness %></td>
-            <td><%= bottle.author %></td>
-            <td><%= bottle.comment %></td>
+            <%= review.rating %>
+            <br>
+            <%= review.author.name %>
+            <br> 
+            <%= review.smoothness %>
+            <br>
+            <%= review.comment %>
+            <br>
           </tr>
-        <% }) %>
-      </tbody>
+          <br>
+          <% if (user.profile._id.equals(bottle.owner._id) || user.profile._id.equals(review.author._id)) { %>
+            <form action="/bottles/<%= bottle._id %>/reviews/<%= review._id %>?_method=DELETE" method="POST">
+              <button type="submit">Delete Review</button>
+            </form>
+          <% } %> 
+    <% }) %> 
     </table>
-  <% } else { %>
-    <h3>No Reviews</h3>
-  <% } %>
+    <% } else { %>
+    <div id="noReviews">
+      <h3>No Reviews On This Climb Yet</h3>
+    </div>
+    <% } %>
 </main>
 
 <%- include('../partials/footer') %>
