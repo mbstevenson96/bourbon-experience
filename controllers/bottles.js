@@ -36,7 +36,14 @@ function create(req, res) {
 
 function show(req, res) {
   Bottle.findById(req.params.id)
-  .populate({ path: 'reviews', select: 'author'})
+  .populate({ 
+    path: 'reviews', 
+    select: 'author',
+    populate: {
+      path: 'author',
+      select: 'name'
+    }
+  })
   .then(bottle => {
     res.render('bottles/show', {
       bottle,
@@ -84,14 +91,6 @@ function update(req, res) {
 function createReview(req, res) {
   req.body.author = req.user.profile._id
   Bottle.findById(req.params.id)
-  .populate({
-    path: 'reviews',
-    select: 'author',
-    populate: {
-      path: 'profile',
-      select: 'name'
-    }
-  })
   .then(bottle => {
     bottle.reviews.push(req.body)
     bottle.save()
