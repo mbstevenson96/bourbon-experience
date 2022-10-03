@@ -131,7 +131,6 @@ function editReview(req, res) {
   Bottle.findById(req.params.bottleId)
   .then(bottle => {
     const review = bottle.reviews.id(req.params.reviewId)
-    console.log('this is my review', review);
     res.render('bottles/editreview', {
       review,
       bottle,
@@ -146,6 +145,21 @@ function editReview(req, res) {
 
 function updateReview(req, res) {
   console.log('this is my update review function!');
+  Bottle.findById(req.params.bottleId)
+  .then(bottle => {
+    const review = bottle.reviews.id(req.params.reviewId)
+    review.rating = req.body.rating
+    review.smoothness = req.body.smoothness
+    review.comment = req.body.comment
+    bottle.save()
+    .then(() => {
+      res.redirect(`/bottles/${bottle._id}`)
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
 }
 
 function deleteReview(req, res) {

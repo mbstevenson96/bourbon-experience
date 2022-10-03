@@ -4,7 +4,7 @@
 
 <main>
   <h1>Edit Review</h1>
-  <form action="/bottles/<%= bottle._id %>/reviews/<%= review._id %>">
+  <form action="/bottles/<%= bottle._id %>/reviews/<%= review._id %>?_method=PUT" method="POST">
     <label>Rating:
       <input type="text" name="rating" id="review-rating-input" value="<%= review.rating %>">
     </label>
