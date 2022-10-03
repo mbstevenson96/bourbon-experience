@@ -5,6 +5,8 @@ import { isLoggedIn } from '../middleware/middleware.js'
 const router = Router()
 
 router.get('/', wishesCtrl.index)
+router.get('/new', isLoggedIn, wishesCtrl.new)
+
 
 
 

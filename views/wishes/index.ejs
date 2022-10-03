@@ -32,6 +32,9 @@
       <% }) %> 
     </tbody>
   </table>
+  <% if (isSelf) { %>
+    <button><a href="/wishes/new">Add Bottle to Wish List</a></button>
+  <% } %>
 </main>
 
 <%- include('../partials/footer') %>

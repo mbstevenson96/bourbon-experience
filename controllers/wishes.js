@@ -14,8 +14,14 @@ function index(req, res) {
   })
 }
 
+function  newWishList(req, res) {
+  res.render('wishes/new', {
+    title: 'Add Bottle'
+  })
+}
 
 
 export {
   index,
+  newWishList as new,
 }
