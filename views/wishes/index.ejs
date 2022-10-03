@@ -1,0 +1,37 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<h1>My Wish List</h1>
+
+<main>
+  <table>
+    <thead>
+      <tr>
+        <th>Title of Bottle:</th>
+        <th>Distillery:</th>
+        <th>Size:</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% wishes.forEach(wish => { %>
+        <tr>
+          <td><%= wish.title %></td>
+          <td><%= wish.distillery %></td>
+          <td><%= wish.size %></td>
+          <td>
+            <button><a href="/wishes/<%= wish._id %>">Bottle Details</a></button>
+          </td>
+          <% if (wish.owner.equals(user?.profile._id)) { %>
+            <td>
+              <form action="/wishes/<%= wish._id %>?_method=DELETE" method="POST">
+                <button id="remove-wish-bottle-btn">Delete Bottle</button>
+              </form>
+            </td>
+          <% } %>
+        </tr>
+      <% }) %> 
+    </tbody>
+  </table>
+</main>
+
+<%- include('../partials/footer') %>

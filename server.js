@@ -23,6 +23,7 @@ import { router as indexRouter } from './routes/index.js'
 import { router as authRouter } from './routes/auth.js'
 import { router as bottlesRouter } from './routes/bottles.js'
 import { router as profilesRouter } from './routes/profiles.js'
+import { router as wishesRouter } from './routes/wishes.js'
 
 
 // create the express app
@@ -70,6 +71,7 @@ app.use('/', indexRouter)
 app.use('/auth', authRouter)
 app.use('/bottles', bottlesRouter)
 app.use('/profiles', profilesRouter)
+app.use('/wishes', wishesRouter)
 
 
 // catch 404 and forward to error handler
