@@ -7,7 +7,7 @@ const router = Router()
 
 router.get('/', bottlesCtrl.index)
 router.get('/new', isLoggedIn, bottlesCtrl.new)
-router.get('/:id', bottlesCtrl.show)
+router.get('/:id', isLoggedIn, bottlesCtrl.show)
 router.get('/:id/edit', isLoggedIn, bottlesCtrl.edit)
 router.get('/:bottleId/reviews/:reviewId/editreview', isLoggedIn, bottlesCtrl.editReview)
 

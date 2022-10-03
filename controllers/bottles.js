@@ -45,6 +45,7 @@ function show(req, res) {
     }
   })
   .then(bottle => {
+    const isSelf = profile._id.equals(req.user.bottle._id)
     res.render('bottles/show', {
       bottle,
       title: `${bottle.title}`
