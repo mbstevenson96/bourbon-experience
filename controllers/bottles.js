@@ -126,6 +126,28 @@ function deleteBottle(req, res) {
   })
 }
 
+function editReview(req, res) {
+  console.log('Thi is my edit review function!');
+  Bottle.findById(req.params.bottleId)
+  .then(bottle => {
+    const review = bottle.reviews.id(req.params.reviewId)
+    console.log('this is my review', review);
+    res.render('bottles/editreview', {
+      review,
+      bottle,
+      title: "Edit Review"
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
+
+function updateReview(req, res) {
+  console.log('this is my update review function!');
+}
+
 function deleteReview(req, res) {
   Bottle.findById(req.params.bottleId)
   .then(bottle => {
@@ -156,4 +178,6 @@ export {
   createReview,
   deleteBottle as delete,
   deleteReview,
+  updateReview,
+  editReview,
 }

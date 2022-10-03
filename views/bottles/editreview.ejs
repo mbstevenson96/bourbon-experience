@@ -1,0 +1,22 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/bottles/new.css" />
+<%- include('../partials/nav') %>
+
+<main>
+  <h1>Edit Review</h1>
+  <form action="/bottles/<%= bottle._id %>/reviews/<%= review._id %>">
+    <label>Rating:
+      <input type="text" name="rating" id="review-rating-input" value="<%= review.rating %>">
+    </label>
+    <label>Smooth or Aggressive:
+      <input type="text" name="smoothness" id="review-smoothness-input" value="<%= review.smoothness %>">
+    </label>
+    <label>Comment:
+      <input type="text" name="comment" id="review-comment-input" value="<%= review.comment %>">
+    </label>
+    <button type="submit">Update Review</button>
+  </form>
+</main>
+
+
+<%- include('../partials/footer') %>

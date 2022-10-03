@@ -66,6 +66,13 @@
             </form>
             <% } %> 
           </td>
+          <td>
+            <% if (user.profile._id.equals(review.author._id)) { %>
+              <a href="/bottles/<%= bottle._id %>/reviews/<%= review._id %>/editreview">
+                <button>Edit Review</button>
+              </a>
+            <% } %>
+          </td>
         </tr>
       </tbody>
     <% }) %> 
