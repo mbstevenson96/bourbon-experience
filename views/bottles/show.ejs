@@ -44,23 +44,30 @@
   </form>
   <% if (bottle.reviews.length) { %>
     <table id="bottle-reviews">
+      <thead>
+        <tr>
+          <th>Rating:</th>
+          <th>Author:</th>
+          <th>Smooth or Aggressive:</th>
+          <th>Comment:</th>
+          <th></th>
+        </tr>
+      </thead>
       <% bottle.reviews.forEach(review => { %>
-          <tr>
-            <%= review.rating %>
-            <br>
-            <%= review.author.name %>
-            <br> 
-            <%= review.smoothness %>
-            <br>
-            <%= review.comment %>
-            <br>
-          </tr>
-          <br>
-          <% if (user.profile._id.equals(bottle.owner._id) || user.profile._id.equals(review.author._id)) { %>
+      <tbody>
+        <tr>
+          <td><%= review.rating %></td>
+          <td><%= review.author.name %></td>
+          <td><%= review.smoothness %></td>
+          <td><%= review.comment %></td>
+          <td><% if (user.profile._id.equals(bottle.owner._id) || user.profile._id.equals(review.author._id)) { %>
             <form action="/bottles/<%= bottle._id %>/reviews/<%= review._id %>?_method=DELETE" method="POST">
               <button type="submit">Delete Review</button>
             </form>
-          <% } %> 
+            <% } %> 
+          </td>
+        </tr>
+      </tbody>
     <% }) %> 
     </table>
     <% } else { %>
