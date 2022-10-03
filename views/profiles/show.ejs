@@ -2,7 +2,7 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <h1>Welcome to <%= isSelf ? "you" : profile.name %>'s profile!</h1>
+  <h1>Welcome to <%= profile.name %>'s profile!</h1>
   <h3><%= profile.name %>'s Inventory</h3>
   <button><a href="/bottles"><%= `${profile.name}'s Inventory` %></a></button>
 
