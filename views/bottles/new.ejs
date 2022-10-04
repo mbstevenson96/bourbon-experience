@@ -13,9 +13,9 @@
         <input type="text" name="distillery" id="distillery-input">
       </label>
       <label>Spirit:
-        <input type="text" name="spirit" id="spirit-input" value="<%= bottle.spirit %>">
+        <input type="text" name="spirit" id="spirit-input">
       </label>
-      <label>Size:
+      <label>Size(ml):
         <input type="number" name="size" id="size-input">
       </label>
       <label>Notes:
@@ -45,13 +45,23 @@
       <label>Quantity Owned:
         <input type="number" name="quantity" id="quantity-input">
       </label>
-      <label>Add to Inventory:
-        <input type="checkbox" name="inventory" id="inventory-input">
-      </label>
-      <label>Add to Wish List:
-        <input type="checkbox" name="wishes" id="wishes-input">
-      </label>
-      <button type="submit">Add Bottle to Inventory</button>
+      <div>
+        <label>Collectable:
+          <input type="checkbox" name="collectable" id="collectable-input">
+        </label>
+        <label>Open to Share:
+          <input type="checkbox" name="open" id="open-input">
+        </label>
+      </div>
+      <div>
+        <label>Add to Inventory:
+          <input type="checkbox" name="inventory" id="inventory-input">
+        </label>
+        <label>Add to Wish List:
+          <input type="checkbox" name="wishes" id="wishes-input">
+        </label>
+      </div>
+      <button type="submit">Add Bottle</button>
     </form>
   <% } %>
 </main>

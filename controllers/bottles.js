@@ -42,6 +42,8 @@ function create(req, res) {
   req.body.strength = !!req.body.strength
   req.body.inventory = !!req.body.inventory
   req.body.wishes = !!req.body.wishes
+  req.body.collectable = !!req.body.collectable
+  req.body.open = !!req.body.open
   Profile.findById(req.body.owner)
   .then(profile => {
     Bottle.create(req.body)

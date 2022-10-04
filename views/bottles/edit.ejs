@@ -15,7 +15,7 @@
       <label>Spirit:
         <input type="text" name="spirit" id="spirit-input" value="<%= bottle.spirit %>">
       </label>
-      <label>Size:
+      <label>Size(ml):
         <input type="number" name="size" id="size-input" value="<%= bottle.size %>">
       </label>
       <label>Notes:
@@ -44,6 +44,12 @@
       </label>
       <label>Quantity Owned:
         <input type="number" name="quantity" id="quantity-input" value="<%= bottle.quantity %>">
+      </label>
+      <label>Collectable:
+        <input type="checkbox" name="collectable" id="collectable-input" value="<%= bottle.collectable %>">
+      </label>
+      <label>Open to Share:
+        <input type="checkbox" name="open" id="open-input" value="<%= bottle.open %>">
       </label>
       <button type="submit">Update Bottle</button>
     </form>

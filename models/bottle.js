@@ -29,6 +29,8 @@ const bottleSchema = new Schema({
   hug: String,
   flavor: String,
   quantity: Number,
+  collectable: Boolean,
+  open: Boolean,
   inventory: Boolean,
   wishes: Boolean,
   reviews: [reviewSchema],

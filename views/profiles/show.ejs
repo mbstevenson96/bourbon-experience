@@ -57,7 +57,7 @@
               <td><%= wish.distillery %></td>
               <td><%= wish.size %>ml</td>
               <td>
-                <button><a href="/wishes/<%= wish._id %>">Bottle Details</a></button>
+                <button><a href="/bottles/<%= wish._id %>">Bottle Details</a></button>
               </td>
               <% if (wish.owner.equals(user?.profile._id)) { %>
                 <td>
