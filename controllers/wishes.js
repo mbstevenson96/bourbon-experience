@@ -1,4 +1,6 @@
 import { Wish } from "../models/wish.js";
+import { Profile } from "../models/profile.js";
+
 
 function index(req, res) {
   Wish.find({})
@@ -16,7 +18,7 @@ function index(req, res) {
 
 function  newWishList(req, res) {
   res.render('wishes/new', {
-    title: 'Add Bottle'
+    title: 'Add Bottle to Wish List'
   })
 }
 
@@ -37,9 +39,20 @@ function show(req, res) {
 function create(req, res) {
   req.body.owner = req.user.profile._id
   req.body.strength = !!req.body.strength
-  Wish.create(req.body)
-  .then(wish => {
-    res.redirect(`/wishes`)
+  Profile.findById(req.body.owner)
+  .then(profile => {
+    Wish.create(req.body)
+    .then(wish => {
+      profile.wishes.push(wish._id)
+      profile.save()
+      .then(() => {
+        res.redirect(`/wishes`)
+      })
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/')
+    })
   })
   .catch(err => {
     console.log(err)

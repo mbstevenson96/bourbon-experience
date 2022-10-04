@@ -5,6 +5,7 @@
   <% if (user) { %>
     <h1>Welcome to <%= profile.name %>'s profile!</h1>
     <% if (profile.bottles?.length) { %>
+      <h1><%= profile.name %>'s Inventory</h1>
       <table>
         <thead>
           <tr>
@@ -28,7 +29,34 @@
         </tbody>
       </table>
     <% } else { %>
-        <h3>No Bottles</h3>
+        <h3>No Inventory Bottles</h3>
+    <% } %>
+    <% if (profile.wishes?.length) { %>
+      <h1><%= profile.name %>'s Wish List</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Title of Bottle:</th>
+            <th>Distillery:</th>
+            <th>Size:</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% profile.wishes.forEach(wish => { %>
+            <tr>
+              <td><%= wish.title %></td>
+              <td><%= wish.distillery %></td>
+              <td><%= wish.size %></td>
+              <td>
+                <button><a href="/wishes/<%= wish._id %>">Bottle Details</a></button>
+              </td>
+            </tr>
+          <% }) %> 
+        </tbody>
+      </table>
+    <% } else { %>
+        <h3>No Wish List Bottles</h3>
     <% } %>
   
     <% if (isSelf) { %>

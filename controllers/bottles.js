@@ -19,7 +19,7 @@ function index(req, res) {
 
 function  newBottle(req, res) {
   res.render('bottles/new', {
-    title: 'Add Bottle'
+    title: 'Add Bottle to Inventory'
   })
 }
 
@@ -35,6 +35,10 @@ function create(req, res) {
       .then(() => {
         res.redirect(`/bottles`)
       })
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/')
     })
   })
   .catch(err => {
