@@ -1,0 +1,47 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/bottles/new.css" />
+<%- include('../partials/nav') %>
+
+<main>
+  <% if (user) { %>
+    <h1>Edit <%= wish.title %></h1>
+    <form action="/wishes/<%= wish._id %>?_method=PATCH" method="POST">
+      <label>Title of Bottle:
+        <input type="text" name="title" id="title-wish-input" value="<%= wish.title %>">
+      </label>
+      <label>Distillery:
+        <input type="text" name="distillery" id="distillery-wish-input" value="<%= wish.distillery %>">
+      </label>
+      <label>Size:
+        <input type="number" name="size" id="size-wish-input" value="<%= wish.size %>">
+      </label>
+      <label>Notes:
+        <input type="text" name="notes" id="notes-wish-input" value="<%= wish.notes %>">
+      </label>
+      <label>Type (Bourbon, Rye, Wheated):
+        <input type="text" name="type" id="type-wish-input" value="<%= wish.type %>">
+      </label>
+      <label>Mash Bill:
+        <input type="text" name="mash" id="mash-wish-input" value="<%= wish.mash %>">
+      </label>
+      <label>Proof:
+        <input type="number" name="proof" id="proof-wish-input" value="<%= wish.proof %>">
+      </label>
+      <label>Barrel Strength:
+        <input type="checkbox" name="strength" id="strength-wish-input" value="<%= wish.strength %>">
+      </label>
+      <label>Color:
+        <input type="text" name="color" id="color-wish-input" value="<%= wish.color %>">
+      </label>
+      <label>Hug:
+        <input type="text" name="hug" id="hug-wish-input" value="<%= wish.hug %>">
+      </label>
+      <label>On the Tongue:
+        <input type="text" name="flavor" id="flavor-wish-input" value="<%= wish.flavor %>">
+      </label>
+      <button type="submit">Update Bottle</button>
+    </form>
+  <% } %>
+</main>
+
+<%- include('../partials/footer') %>

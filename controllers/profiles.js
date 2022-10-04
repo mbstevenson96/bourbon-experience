@@ -34,9 +34,29 @@ function show(req, res) {
   })
 }
 
+function addToWish(req, res) {
+  console.log('add to wish list function');
+  Profile.findById(req.user.profile._id)
+  .populate('wishes')
+  .then(profile => {
+    console.log('this is my req.body', req.body);
+    console.log('this is my profile', profile);
+
+    profile.wishes.push(req.body.id)
+    profile.save()
+    .then(() => {
+      res.redirect(`/profiles/${req.params.id}`)
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect(`/profiles/${req.params.id}`)
+  })
+}
 
 
 export {
   index, 
   show,
+  addToWish,
 }

@@ -17,6 +17,12 @@
       <p>Color: <%= wish.color %></p>
       <p>Hug: <%= wish.hug %></p>
       <p>On the Tongue: <%= wish.flavor %></p>
+      <% if (wish.owner.equals(user?.profile._id)) { %>
+        <a href="/wishes/<%= wish._id %>/edit">
+          <button>Edit This Bottle</button>
+        </a>
+      <% } %>
+      <a href="/wishes"><button>Go Back</button></a>
   <% }  %>
   </section>
 </main>

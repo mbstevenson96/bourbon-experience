@@ -22,6 +22,13 @@
             <td>
               <button><a href="/bottles/<%= bottle._id %>">Bottle Details</a></button>
             </td>
+
+            <form action="/profiles/<%= user.profile._id %>/addToWish?_method=PATCH" method="POST" name="addToWish">
+              <input type="text" name="id" hidden value="<%= bottle._id %>">
+            <td><button type="submit">Add to Your Wish List</button></td>
+            </form>
+
+
             <% if (bottle.owner.equals(user?.profile._id)) { %>
               <td>
                 <form action="/bottles/<%= bottle._id %>?_method=DELETE" method="POST">

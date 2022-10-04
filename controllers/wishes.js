@@ -60,10 +60,45 @@ function create(req, res) {
   })
 }
 
+function edit(req, res) {
+  Wish.findById(req.params.id)
+  .then(wish => {
+    res.render('wishes/edit', {
+      wish,
+      title: `Edit ${wish.title}`
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
+
+function update(req, res) {
+  Wish.findById(req.params.id)
+  .then(wish => {
+    if (wish.owner.equals(req.user.profile._id)){
+      wish.updateOne(req.body)
+      .then(updatedWish => {
+        res.redirect(`/wishes/${wish._id}`)
+      })
+    } else {
+      throw new Error('NOT AUTHORIZED')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
+
+
 
 export {
   index,
   newWishList as new,
   show,
   create,
+  edit,
+  update,
 }

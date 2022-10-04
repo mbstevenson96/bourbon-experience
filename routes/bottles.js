@@ -15,6 +15,7 @@ router.put('/:bottleId/reviews/:reviewId/', isLoggedIn, bottlesCtrl.updateReview
 
 router.patch('/:id', isLoggedIn, bottlesCtrl.update)
 
+
 router.post('/', isLoggedIn, bottlesCtrl.create)
 router.post('/bottles/:id/reviews', isLoggedIn, bottlesCtrl.createReview)
 
