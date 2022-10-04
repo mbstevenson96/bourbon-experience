@@ -15,6 +15,7 @@ const reviewSchema = new Schema( {
 const bottleSchema = new Schema({
   title: String,
   distillery: String,
+  spirit: String,
   size: Number,
   notes: String,
   type: {

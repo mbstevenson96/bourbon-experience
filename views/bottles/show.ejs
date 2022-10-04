@@ -9,6 +9,7 @@
     <section>
       <p>Distillery: <%= bottle.distillery %></p>
       <p>Size: <%= bottle.size %>ml</p>
+      <p>SpiritL <%= bottle.spirit %></p>
       <p>Notes: <%= bottle.notes %></p>
       <p>Type: <%= bottle.type %></p>
       <p>Mash Bill: <%= bottle.mash %></p>
@@ -18,72 +19,72 @@
       <p>Hug: <%= bottle.hug %></p>
       <p>On the Tongue: <%= bottle.flavor %></p>
       <p>Quantity Owned: <%= bottle.quantity %></p>
-  <% }  %>
-  <% if (bottle.owner.equals(user?.profile._id)) { %>
-    <a href="/bottles/<%= bottle._id %>/edit">
-      <button>Edit This Bottle</button>
-    </a>
-  <% } %>
-  <a href="/bottles"><button>Go Back</button></a>
-  </section>
-  <h2>Reviews</h2>
-  <form 
-    id="add-review-form"
-    action="bottles/<%= bottle._id %>/reviews"
-    method="POST"
-  >
-  <label for="content-textarea">Rating:
-    <input id="rating-input" type="text" name="rating" value="<%= bottle.rating %>">
-  </label>
-  <label for="content-textarea">Smooth or Aggressive:
-    <input id="smoothness-input" type="text" name="smoothness" value="<%= bottle.smoothness %>">
-  </label>
-  <label for="content-textarea">Comment:
-    <input id="comment-input" type="text" name="comment" value="<%= bottle.comment %>">
-  </label>
-    <button id="add-review-btn" type="submit">Add Review</button>
-  </form>
-  <% if (bottle.reviews.length) { %>
-    <table id="bottle-reviews">
-      <thead>
-        <tr>
-          <th>Rating:</th>
-          <th>Author:</th>
-          <th>Smooth or Aggressive:</th>
-          <th>Comment:</th>
-          <th></th>
-          <th></th>
-        </tr>
-      </thead>
-      <% bottle.reviews.forEach(review => { %>
-      <tbody>
-        <tr>
-          <td><%= review.rating %></td>
-          <td><%= review.author.name %></td>
-          <td><%= review.smoothness %></td>
-          <td><%= review.comment %></td>
-          <td><% if (user.profile._id.equals(bottle.owner._id) || user.profile._id.equals(review.author._id)) { %>
-            <form action="/bottles/<%= bottle._id %>/reviews/<%= review._id %>?_method=DELETE" method="POST">
-              <button type="submit">Delete Review</button>
-            </form>
-            <% } %> 
-          </td>
-          <td>
-            <% if (user.profile._id.equals(review.author._id)) { %>
-              <a href="/bottles/<%= bottle._id %>/reviews/<%= review._id %>/editreview">
-                <button>Edit Review</button>
-              </a>
+      <% if (bottle.owner.equals(user?.profile._id)) { %>
+        <a href="/bottles/<%= bottle._id %>/edit">
+          <button>Edit This Bottle</button>
+        </a>
+        <% } %>
+        <a href="/bottles"><button>Go Back</button></a>
+      </section>
+      <h2>Reviews</h2>
+      <form 
+      id="add-review-form"
+      action="bottles/<%= bottle._id %>/reviews"
+      method="POST"
+      >
+      <label for="content-textarea">Rating:
+        <input id="rating-input" type="text" name="rating" value="<%= bottle.rating %>">
+      </label>
+      <label for="content-textarea">Smooth or Aggressive:
+        <input id="smoothness-input" type="text" name="smoothness" value="<%= bottle.smoothness %>">
+      </label>
+      <label for="content-textarea">Comment:
+        <input id="comment-input" type="text" name="comment" value="<%= bottle.comment %>">
+      </label>
+      <button id="add-review-btn" type="submit">Add Review</button>
+    </form>
+    <% if (bottle.reviews.length) { %>
+      <table id="bottle-reviews">
+        <thead>
+          <tr>
+            <th>Rating:</th>
+            <th>Author:</th>
+            <th>Smooth or Aggressive:</th>
+            <th>Comment:</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <% bottle.reviews.forEach(review => { %>
+          <tbody>
+            <tr>
+              <td><%= review.rating %></td>
+              <td><%= review.author.name %></td>
+              <td><%= review.smoothness %></td>
+              <td><%= review.comment %></td>
+              <td><% if (user.profile._id.equals(bottle.owner._id) || user.profile._id.equals(review.author._id)) { %>
+                <form action="/bottles/<%= bottle._id %>/reviews/<%= review._id %>?_method=DELETE" method="POST">
+                  <button type="submit">Delete Review</button>
+                </form>
+                <% } %> 
+              </td>
+              <td>
+                <% if (user.profile._id.equals(review.author._id)) { %>
+                  <a href="/bottles/<%= bottle._id %>/reviews/<%= review._id %>/editreview">
+                    <button>Edit Review</button>
+                  </a>
+                  <% } %>
+                </td>
+              </tr>
+            </tbody>
+            <% }) %> 
+          </table>
+          <% } else { %>
+            <div id="noReviews">
+              <h3>No Reviews</h3>
+            </div>
             <% } %>
-          </td>
-        </tr>
-      </tbody>
-    <% }) %> 
-    </table>
-    <% } else { %>
-    <div id="noReviews">
-      <h3>No Reviews</h3>
-    </div>
-    <% } %>
-</main>
+            <% }  %>
+          </main>
 
 <%- include('../partials/footer') %>
