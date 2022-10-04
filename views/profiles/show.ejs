@@ -24,6 +24,13 @@
               <td>
                 <button><a href="/bottles/<%= bottle._id %>">Bottle Details</a></button>
               </td>
+              <% if (bottle.owner.equals(user?.profile._id)) { %>
+                <td>
+                  <form action="/bottles/<%= bottle._id %>?_method=DELETE" method="POST">
+                    <button id="remove-bottle-btn">Delete Bottle</button>
+                  </form>
+                </td>
+              <% } %>
             </tr>
           <% }) %> 
         </tbody>
@@ -40,6 +47,7 @@
             <th>Distillery:</th>
             <th>Size:</th>
             <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -51,6 +59,13 @@
               <td>
                 <button><a href="/wishes/<%= wish._id %>">Bottle Details</a></button>
               </td>
+              <% if (wish.owner.equals(user?.profile._id)) { %>
+                <td>
+                  <form action="/wishes/<%= wish._id %>?_method=DELETE" method="POST">
+                    <button id="remove-wish-bottle-btn">Delete Bottle</button>
+                  </form>
+                </td>
+              <% } %>
             </tr>
           <% }) %> 
         </tbody>
