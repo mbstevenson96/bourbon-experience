@@ -15,6 +15,7 @@ router.patch('/:id', isLoggedIn, wishesCtrl.update)
 router.post('/', isLoggedIn, wishesCtrl.create)
 
 
+router.delete('/:id', isLoggedIn, wishesCtrl.delete)
 
 
 

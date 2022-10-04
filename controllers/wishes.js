@@ -92,6 +92,24 @@ function update(req, res) {
   })
 }
 
+function deleteBottle(req, res) {
+  Wish.findByIdAndDelete(req.params.id)
+  .then(wish => {
+    if (wish.owner.equals(req.user.profile._id)) {
+      wish.delete()
+      .then(deleteWish => {
+        res.redirect('/wishes')
+      })
+    } else {
+      throw new Error('NOT AUTHORIZED')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
+
 
 
 export {
@@ -101,4 +119,5 @@ export {
   create,
   edit,
   update,
+  deleteBottle as delete,
 }
