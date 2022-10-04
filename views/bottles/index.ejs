@@ -22,7 +22,7 @@
             <td>
               <button><a href="/bottles/<%= bottle._id %>">Bottle Details</a></button>
             </td>
-            <% if (bottle.owner.equals(user?.profile._id)) { %>
+            <% if (bottle.owner?.equals(user.profile._id)) { %>
               <td>
                 <form action="/bottles/<%= bottle._id %>?_method=DELETE" method="POST">
                   <button id="remove-bottle-btn">Delete Bottle</button>

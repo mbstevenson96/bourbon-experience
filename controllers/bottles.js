@@ -1,4 +1,6 @@
 import { Bottle } from "../models/bottle.js";
+import { Profile } from "../models/profile.js";
+
 
 
 function index(req, res) {
@@ -24,9 +26,16 @@ function  newBottle(req, res) {
 function create(req, res) {
   req.body.owner = req.user.profile._id
   req.body.strength = !!req.body.strength
-  Bottle.create(req.body)
-  .then(bottle => {
-    res.redirect(`/bottles`)
+  Profile.findById(req.body.owner)
+  .then(profile => {
+    Bottle.create(req.body)
+    .then(bottle => {
+      profile.bottles.push(bottle._id)
+      profile.save()
+      .then(() => {
+        res.redirect(`/bottles`)
+      })
+    })
   })
   .catch(err => {
     console.log(err)

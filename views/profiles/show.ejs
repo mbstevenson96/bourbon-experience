@@ -4,9 +4,30 @@
 <main>
   <% if (user) { %>
     <h1>Welcome to <%= profile.name %>'s profile!</h1>
-    <h3><%= profile.name %>'s Inventory</h3>
-    <button><a href="/bottles"><%= `${profile.name}'s Inventory` %></a></button>
-    <button><a href="/wishes"><%= `${profile.name}'s Wish List` %></a></button>
+    <% if (profile.bottles?.length) { %>
+      <table>
+        <thead>
+          <tr>
+            <th>Title of Bottle:</th>
+            <th>Distillery:</th>
+            <th>Size:</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% profile.bottles.forEach(bottle => { %>
+            <%= console.log('this is my bottle', bottle) %> 
+            <tr>
+              <td><%= bottle.title %></td>
+              <td><%= bottle.distillery %></td>
+              <td><%= bottle.size %></td>
+            </tr>
+          <% }) %> 
+        </tbody>
+      </table>
+    <% } else { %>
+        <h3>No Bottles</h3>
+    <% } %>
   
     <% if (isSelf) { %>
       <button><a href="/bottles/new">Add Bottle to Inventory</a></button>
