@@ -21,6 +21,7 @@ function show(req, res) {
   .populate('bottles')
   .populate('wishes')
   .then(profile => {
+    console.log("this is the show profile", profile);
     const isSelf = profile._id.equals(req.user.profile._id)
     res.render('profiles/show', {
       profile,
@@ -37,14 +38,15 @@ function show(req, res) {
 function addToWish(req, res) {
   console.log('add to wish list function');
   Profile.findById(req.user.profile._id)
-  .populate('wishes')
+  // .populate('wishes')
   .then(profile => {
-    console.log('this is my req.body', req.body);
+    console.log('this is my req.body.id', req.body.id);
     console.log('this is my profile', profile);
 
     profile.wishes.push(req.body.id)
     profile.save()
     .then(() => {
+    console.log('this is my second profile', profile);
       res.redirect(`/profiles/${req.params.id}`)
     })
   })

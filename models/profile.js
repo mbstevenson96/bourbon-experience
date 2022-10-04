@@ -6,7 +6,7 @@ const profileSchema = new Schema({
   name: String,
   avatar: String,
   bottles: [{ type: Schema.Types.ObjectId, ref: "Bottle" }],
-  wishes: [{ type: Schema.Types.ObjectId, ref: "Wish" }],
+  wishes: [{ type: Schema.Types.ObjectId, ref: "Bottle" }],
 }, {
   timestamps: true
 })

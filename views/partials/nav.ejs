@@ -13,13 +13,9 @@
         >
         All Profiles
       </a>
-      <a href="/bottles/" <%- title==='All Invenotry Bottles' ? 'class="active"' : '' %>
+      <a href="/bottles/" <%- title==='Add Bottle' ? 'class="active"' : '' %>
         >
-        All Inventory Bottles
-      </a>
-      <a href="/wishes/" <%- title==='All Wish List Bottles' ? 'class="active"' : '' %>
-        >
-        All Wish List Bottles
+        Add Bottle
       </a>
       <% if (user?.profile.avatar) { %>
         <div class="right">

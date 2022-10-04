@@ -28,6 +28,8 @@ const bottleSchema = new Schema({
   hug: String,
   flavor: String,
   quantity: Number,
+  inventory: Boolean,
+  wishes: Boolean,
   reviews: [reviewSchema],
   owner: { type: Schema.Types.ObjectId, ref: "Profile" }
 

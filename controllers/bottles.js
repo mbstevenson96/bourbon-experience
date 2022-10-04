@@ -27,11 +27,18 @@ function  newBottle(req, res) {
 function create(req, res) {
   req.body.owner = req.user.profile._id
   req.body.strength = !!req.body.strength
+  req.body.inventory = !!req.body.inventory
+  req.body.wishes = !!req.body.wishes
   Profile.findById(req.body.owner)
   .then(profile => {
     Bottle.create(req.body)
     .then(bottle => {
-      profile.bottles.push(bottle._id)
+      if (req.body.inventory) {
+        profile.bottles.push(bottle._id)
+      }
+      if (req.body.wishes) {
+        profile.wishes.push(bottle._id)
+      }
       profile.save()
       .then(() => {
         res.redirect(`/bottles`)
