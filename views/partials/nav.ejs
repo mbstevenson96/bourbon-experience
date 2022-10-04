@@ -25,6 +25,14 @@
         >
         Add Bottle
       </a>
+      <% if (user?.profile.avatar) { %>
+        <div class="right">
+          <img
+            src="<%= user.profile.avatar %>"
+            alt="<%= user.profile.name %> avatar"
+          />
+        </div>
+      <% } %>
       <a href="/auth/logout" class="right">
         <button type="submit">Logout</button>
       </a>

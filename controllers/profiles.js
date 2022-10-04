@@ -20,7 +20,6 @@ function show(req, res) {
   Profile.findById(req.params.id)
   .populate('bottles')
   .then(profile => {
-    console.log('this is my profile', profile);
     const isSelf = profile._id.equals(req.user.profile._id)
     res.render('profiles/show', {
       profile,
