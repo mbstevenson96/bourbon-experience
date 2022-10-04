@@ -4,6 +4,7 @@ import { Profile } from "../models/profile.js";
 
 function index(req, res) {
   Wish.find({})
+  .populate('owner')
   .then(wishes => {
     res.render('wishes/index', {
       wishes,

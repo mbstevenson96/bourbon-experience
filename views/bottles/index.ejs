@@ -10,6 +10,7 @@
           <th>Title of Bottle:</th>
           <th>Distillery:</th>
           <th>Size:</th>
+          <th>Creator:</th>
           <th></th>
         </tr>
       </thead>
@@ -19,6 +20,7 @@
             <td><%= bottle.title %></td>
             <td><%= bottle.distillery %></td>
             <td><%= bottle.size %></td>
+            <td><%= bottle.owner.name %></td>
             <td>
               <button><a href="/bottles/<%= bottle._id %>">Bottle Details</a></button>
             </td>

@@ -5,6 +5,7 @@ import { Profile } from "../models/profile.js";
 
 function index(req, res) {
   Bottle.find({})
+  .populate('owner')
   .then(bottles => {
     res.render('bottles/index', {
       bottles,

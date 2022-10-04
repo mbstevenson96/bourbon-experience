@@ -11,6 +11,9 @@
           <th>Title of Bottle:</th>
           <th>Distillery:</th>
           <th>Size:</th>
+          <th>Creator:</th>
+          <th></th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -19,6 +22,7 @@
             <td><%= wish.title %></td>
             <td><%= wish.distillery %></td>
             <td><%= wish.size %></td>
+            <td><%= wish.owner.name %></td>
             <td>
               <button><a href="/wishes/<%= wish._id %>">Bottle Details</a></button>
             </td>
