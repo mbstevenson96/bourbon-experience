@@ -4,12 +4,25 @@ import { Profile } from "../models/profile.js";
 
 
 function index(req, res) {
-  Bottle.find({})
-  .populate('owner')
-  .then(bottles => {
-    res.render('bottles/index', {
-      bottles,
-      title: 'My Inventory'
+  let modelQuery = req.query.name
+    ? { name: new RegExp(req.query.name, 'i') }
+    : {}
+    Profile.find(modelQuery)
+  .sort("name")
+  .then(profiles => {
+    Bottle.find({})
+    .populate('owner')
+    .then(bottles => {
+      const filterBottles = bottles.filter(bottle => {
+        return bottle.owner._id.toString() === profiles[0]._id.toString()
+      })
+      const finalBottles = req.query.name ? filterBottles : bottles
+      res.render('bottles/index', {
+        bottles: finalBottles,
+        profiles,
+        name: req.query.name,
+        title: 'My Inventory'
+      })
     })
   })
   .catch(err => {

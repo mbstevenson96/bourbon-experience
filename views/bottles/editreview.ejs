@@ -6,7 +6,7 @@
   <% if (user) { %>
     <h1>Edit Review</h1>
     <form action="/bottles/<%= bottle._id %>/reviews/<%= review._id %>?_method=PUT" method="POST">
-      <label>Rating:
+      <label>Rating (1-10):
         <input type="text" name="rating" id="review-rating-input" value="<%= review.rating %>">
       </label>
       <label>Smooth or Aggressive:
