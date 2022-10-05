@@ -1,0 +1,93 @@
+#table-container1 {
+  margin-bottom: 40px;
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  color: black;
+  border-style: inset;
+  border-color: #b4661a;
+  border-width: 6px;
+}
+
+#table-container2 {
+  margin-bottom: 40px;
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  color: black;
+  border-style: inset;
+  border-color: #b4661a;
+  border-width: 6px;
+}
+
+#inventory-thead,
+#wishes-thead {
+  color: white;
+  
+}
+
+th,
+td {
+  /* empty-cells: show; */
+  padding: 0 10px;
+  letter-spacing: 2px;
+}
+
+tbody td {
+  text-align: center;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #e8c896;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #d2a671;
+}
+
+#welcome-h1 {
+  margin: auto;
+  padding: 30px 10px;
+  text-align: center;
+  font-size: 60px;
+}
+
+#inventory-name-h1 {
+  text-align: left;
+  padding-top: 40px;
+
+}
+
+#wish-h1 {
+  text-align: left;
+  padding-top: 40px;
+}
+
+button {
+  border-radius: 15px;
+  color: white;
+  background-image: url('../../assets/close-barrel.jpg');
+  border-color: black;
+}
+
+button:hover,
+#add-new-bottle-a:hover {
+  color: #abdbe3;
+}
+
+.detail-btn-a,
+#add-new-bottle-a {
+  color: white;
+  border-color: black;
+  text-decoration: none;
+}
+
+.detail-btn-a:hover {
+  color: #abdbe3;
+}
+
+#add-new-bottle-btn {
+  width: 200px;
+  height: 80px;
+  font-size: 25px;
+}

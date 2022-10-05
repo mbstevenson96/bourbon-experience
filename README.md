@@ -8,3 +8,4 @@
 - search feature from SEI Students lecture and TA assistance.
 - warehouse barrels from Katherine Conrad on Unsplash. https://unsplash.com/photos/QL3SaEwio_k
 - sharing drink image from Andrew Seaman on Unsplash. https://unsplash.com/photos/3Vb7WtHGRes
+- close-barrel image from Mike on Unsplash. https://unsplash.com/photos/05aeUGmSw5w

@@ -1,13 +1,15 @@
 <%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/profiles/show.css" />
 <%- include('../partials/nav') %>
 
 <main>
   <% if (user) { %>
-    <h1>Welcome to <%= profile.name %>'s profile!</h1>
+    <h1 id="welcome-h1"><%= profile.name %>'s profile!</h1>
     <% if (profile.bottles?.length) { %>
-      <h1><%= profile.name %>'s Inventory</h1>
+      <h1 id="inventory-name-h1">Inventory</h1>
+      <div id="table-container1">
       <table>
-        <thead>
+        <thead id="inventory-thead">
           <tr>
             <th>Title of Bottle:</th>
             <th>Distillery:</th>
@@ -22,7 +24,7 @@
               <td><%= bottle.distillery %></td>
               <td><%= bottle.size %>ml</td>
               <td>
-                <button><a href="/bottles/<%= bottle._id %>">Bottle Details</a></button>
+                <button><a href="/bottles/<%= bottle._id %>" class="detail-btn-a">Bottle Details</a></button>
               </td>
               <% if (bottle.owner.equals(user?.profile._id)) { %>
                 <td>
@@ -38,10 +40,12 @@
     <% } else { %>
         <h3>No Inventory Bottles</h3>
     <% } %>
+    </div>
     <% if (profile.wishes?.length) { %>
-      <h1><%= profile.name %>'s Wish List</h1>
+      <h1 id="wish-h1">Wish List</h1>
+      <div id="table-container2">
       <table>
-        <thead>
+        <thead id="wishes-thead">
           <tr>
             <th>Title of Bottle:</th>
             <th>Distillery:</th>
@@ -57,7 +61,7 @@
               <td><%= wish.distillery %></td>
               <td><%= wish.size %>ml</td>
               <td>
-                <button><a href="/bottles/<%= wish._id %>">Bottle Details</a></button>
+                <button><a href="/bottles/<%= wish._id %>" class="detail-btn-a">Bottle Details</a></button>
               </td>
               <% if (wish.owner.equals(user?.profile._id)) { %>
                 <td>
@@ -73,13 +77,12 @@
     <% } else { %>
         <h3>No Wish List Bottles</h3>
     <% } %>
+    </div>
   
     <% if (isSelf) { %>
-      <button><a href="/bottles/new">Add New Bottle</a></button>
+      <button id="add-new-bottle-btn"><a href="/bottles/new" id="add-new-bottle-a">Add New Bottle</a></button>
     <% } %>
   <% } %>
 </main>
-
-
 
 <%- include('../partials/footer') %>
