@@ -21,10 +21,16 @@
 .card {
   display: flex;
   width: 300px;
-  background-color: white;
+  background-image: url('../../assets/close-barrel.jpg');
+  background-size: cover;
+  background-repeat:no-repeat;
+  background-position:fixed;
+  max-width: 2000px;
+  max-height: 400px;
+  height: auto;
   border: 2px solid black;
-  border-radius: 10px;
-  color: black;
+  border-radius: 15px;
+  color: white;
   padding: 10px;
   
 }
