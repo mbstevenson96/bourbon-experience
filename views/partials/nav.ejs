@@ -6,27 +6,19 @@
   <div id="picture-frame">
   <nav id="nav-bar">
     <% if (user) { %>
-      <div class="dropdown-center">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Menu
-        </button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/profiles/<%= user.profile._id %>">My Profile</a></li>
-            <li><a class="dropdown-item" href="/profiles">All Profiles</a></li>
-            <li><a class="dropdown-item" href="/bottles/">All Bottles</a></li>
-          </ul>
-      </div>
+      <a href="profiles/<%= user.profile._id %>" class="nav-a">My Profile</a>
+      <a href="/profiles" class="nav-a">All Profiles</a>
+      <a href="/bottles" class="nav-a">All Bottles</a>
       <% if (user?.profile.avatar) { %>
-        <div class="right">
-          <img
+        <div id="user-img-div">
+            <img id="user-img"
             src="<%= user.profile.avatar %>"
             alt="<%= user.profile.name %> avatar"
           />
+          <a href="/auth/logout" id="logout-a">
+          <p id="logout-p">Logout</p></a>
         </div>
       <% } %>
-      <a href="/auth/logout" class="right">
-        <button type="submit">Logout</button>
-      </a>
     <% } else { %>
       <div 
         id="g_id_onload"

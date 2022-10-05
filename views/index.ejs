@@ -2,15 +2,15 @@
 <%- include('./partials/nav') %>
 
 <main>
-  <h1>Hello, <%= user ? user.profile.name : "friend!" %></h1>
-  <% if (user?.profile.avatar) { %>
-    <div>
-      <img
-        src="<%= user.profile.avatar %>"
-        alt="<%= user.profile.name %> avatar"
-      />
-    </div>
-  <% } %>
+  <div id="main-page-h1-div">
+    <h1 class="animate__animated animate__fadeInDown animate__slow">Welcome to the Bourbon Experience</h1>
+  </div>
+  <div id="main-page-p-div">
+    <p class="animate__animated animate__fadeInDown animate__slow">
+      The Bourbon Experience is a community where you can track your personal collection, browse your friend's collections, and build your custom wish list. Use this space to connect with your friends and review their collections as well and build your community.
+    </p>
+    <p class="animate__animated animate__fadeInDown animate__slow">Sign in above to start your journey!</p>
+  </div>
 </main>
 
 <%- include('./partials/footer') %>
