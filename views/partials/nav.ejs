@@ -3,20 +3,19 @@
   <% } %>
 </head>
 <body>
-  <nav>
+  <div id="picture-frame">
+  <nav id="nav-bar">
     <% if (user) { %>
-      <a href="/profiles/<%= user.profile._id %>" <%- title==='My Profile' ? 'class="active"' : '' %>
-        >
-        My Profile
-      </a>
-      <a href="/profiles" <%- title==='All Profiles' ? 'class="active"' : '' %>
-        >
-        All Profiles
-      </a>
-      <a href="/bottles/" <%- title==='All Bottles' ? 'class="active"' : '' %>
-        >
-        All Bottles
-      </a>
+      <div class="dropdown-center">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Menu
+        </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/profiles/<%= user.profile._id %>">My Profile</a></li>
+            <li><a class="dropdown-item" href="/profiles">All Profiles</a></li>
+            <li><a class="dropdown-item" href="/bottles/">All Bottles</a></li>
+          </ul>
+      </div>
       <% if (user?.profile.avatar) { %>
         <div class="right">
           <img
@@ -46,3 +45,4 @@
       ></div>
     <% } %>
   </nav>
+  </div>
