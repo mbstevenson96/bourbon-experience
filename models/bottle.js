@@ -30,7 +30,6 @@ const bottleSchema = new Schema({
   flavor: String,
   quantity: Number,
   collectable: Boolean,
-  open: Boolean,
   inventory: Boolean,
   wishes: Boolean,
   reviews: [reviewSchema],

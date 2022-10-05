@@ -9,7 +9,7 @@
     <section>
       <p>Distillery: <%= bottle.distillery %></p>
       <p>Size: <%= bottle.size %>ml</p>
-      <p>SpiritL <%= bottle.spirit %></p>
+      <p>Spirit: <%= bottle.spirit %></p>
       <p>Notes: <%= bottle.notes %></p>
       <p>Type: <%= bottle.type %></p>
       <p>Mash Bill: <%= bottle.mash %></p>
@@ -19,6 +19,7 @@
       <p>Hug: <%= bottle.hug %></p>
       <p>On the Tongue: <%= bottle.flavor %></p>
       <p>Quantity Owned: <%= bottle.quantity %></p>
+      <p>Collectable: <%= bottle.collectable ? 'Collectable' : 'Open to Share' %></p>
       <% if (bottle.owner.equals(user?.profile._id)) { %>
         <a href="/bottles/<%= bottle._id %>/edit">
           <button>Edit This Bottle</button>

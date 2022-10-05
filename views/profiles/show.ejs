@@ -61,7 +61,7 @@
               </td>
               <% if (wish.owner.equals(user?.profile._id)) { %>
                 <td>
-                  <form action="/wishes/<%= wish._id %>?_method=DELETE" method="POST">
+                  <form action="/bottles/<%= wish._id %>?_method=DELETE" method="POST">
                     <button id="remove-wish-bottle-btn">Delete Bottle</button>
                   </form>
                 </td>
