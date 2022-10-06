@@ -1,21 +1,25 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="/stylesheets/bottles/new.css" />
+<link rel="stylesheet" href="/stylesheets/bottles/editreview.css" />
 <%- include('../partials/nav') %>
 
 <main>
   <% if (user) { %>
     <h1>Edit Review</h1>
     <form action="/bottles/<%= bottle._id %>/reviews/<%= review._id %>?_method=PUT" method="POST">
-      <label>Rating (1-10):
-        <input type="text" name="rating" id="review-rating-input" value="<%= review.rating %>">
-      </label>
-      <label>Smooth or Aggressive:
-        <input type="text" name="smoothness" id="review-smoothness-input" value="<%= review.smoothness %>">
-      </label>
-      <label>Comment:
-        <input type="text" name="comment" id="review-comment-input" value="<%= review.comment %>">
-      </label>
-      <button type="submit">Update Review</button>
+      <div id="edit-review-div">
+        <label class="edit-review-labels">Rating (1-10):
+          <input type="text" name="rating" id="review-rating-input" value="<%= review.rating %>">
+        </label class="edit-review-labels">
+        <label class="edit-review-labels">Smooth or Aggressive:
+          <input type="text" name="smoothness" id="review-smoothness-input" value="<%= review.smoothness %>">
+        </label>
+        <label class="edit-review-labels">Comment:
+          <input type="text" name="comment" id="review-comment-input" value="<%= review.comment %>">
+        </label>
+      </div>
+      <div id="edit-review-btn-div">
+        <button type="submit">Update Review</button>
+      </div>
     </form>
   <% } %>
 </main>

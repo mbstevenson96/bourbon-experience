@@ -1,0 +1,36 @@
+h1 {
+  text-align: center;
+  font-size: 80px;
+}
+
+#edit-review-div {
+  display: flex;
+  justify-content: center;
+}
+
+.edit-review-labels {
+  font-size: 20px;
+}
+
+.edit-review-labels > input {
+  opacity: .5;
+  width: 240px;
+  margin: 10px;
+}
+
+
+#edit-review-btn-div {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+button {
+  border-radius: 15px;
+  color: white;
+  background-image: url('../../assets/close-barrel.jpg');
+  background-size: cover;
+  border-color: black;
+  height: 40px;
+  width: 150px;
+}
