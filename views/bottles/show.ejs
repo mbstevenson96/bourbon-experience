@@ -2,9 +2,9 @@
 <link rel="stylesheet" href="/stylesheets/bottles/show.css" />
 <%- include('../partials/nav') %>
 
-<main>
+<main id="bottle-details-main">
   <% if (user) { %>
-    <h1><%= title %></h1>
+    <h1 id="bottle-title"><%= title %></h1>
     <section>
       <p>Distillery: <%= bottle.distillery %></p>
       <p>Size of Bottle: <%= bottle.size %>ml</p>
@@ -19,30 +19,39 @@
       <p>On the Tongue: <%= bottle.flavor %></p>
       <p>Quantity Owned: <%= bottle.quantity %></p>
       <p>Collectible: <%= bottle.collectable ? 'Yes' : 'No' %></p>
+      <div id="btns-container">
       <% if (bottle.owner.equals(user?.profile._id)) { %>
         <a href="/bottles/<%= bottle._id %>/edit">
-          <button>Edit This Bottle</button>
+          <button id="edit-bottle-show">Edit Bottle</button>
         </a>
         <% } %>
-        <a href="/bottles"><button>Go Back</button></a>
+        <a href="/bottles"><button id="go-back-show">Go Back</button></a>
+      </div>
       </section>
-      <h2>Reviews</h2>
+      <div id="review-container">
+        <div id="reviews">
+        <h2>Reviews</h2>
+        </div>
+      </div>
       <form 
       id="add-review-form"
       action="bottles/<%= bottle._id %>/reviews"
       method="POST"
       >
-      <label for="content-textarea">Rating (1-10):
-        <input id="rating-input" type="text" name="rating" value="<%= bottle.rating %>">
-      </label>
-      <label for="content-textarea">Smooth or Aggressive:
-        <input id="smoothness-input" type="text" name="smoothness" value="<%= bottle.smoothness %>">
-      </label>
-      <label for="content-textarea">Comment:
-        <input id="comment-input" type="text" name="comment" value="<%= bottle.comment %>">
-      </label>
-      <button id="add-review-btn" type="submit">Add Review</button>
+      <div id="review-label-div">
+        <label class="review-labels">Rating (1-10):
+          <input id="rating-input" type="text" name="rating" value="<%= bottle.rating %>">
+        </label>
+        <label class="review-labels">Smooth or Aggressive:
+          <input id="smoothness-input" type="text" name="smoothness" value="<%= bottle.smoothness %>">
+        </label>
+        <label class="review-labels">Comment:
+          <input id="comment-input" type="text" name="comment" value="<%= bottle.comment %>">
+        </label>
+      </div>
+      <button id="add-review-btn" type="submit" id="add-review-btn">Add Review</button>
     </form>
+    <div id="review-answers">
     <% if (bottle.reviews.length) { %>
       <table id="bottle-reviews">
         <thead>
@@ -64,15 +73,19 @@
               <td><%= review.comment %></td>
               <td><% if (user.profile._id.equals(bottle.owner._id) || user.profile._id.equals(review.author._id)) { %>
                 <form action="/bottles/<%= bottle._id %>/reviews/<%= review._id %>?_method=DELETE" method="POST">
-                  <button type="submit">Delete Review</button>
+                  <button type="submit" class="review-owner-btns">Delete Review</button>
                 </form>
+                <% } else { %>
+                  <td></td>
                 <% } %> 
               </td>
               <td>
                 <% if (user.profile._id.equals(review.author._id)) { %>
                   <a href="/bottles/<%= bottle._id %>/reviews/<%= review._id %>/editreview">
-                    <button>Edit Review</button>
+                    <button class="review-owner-btns">Edit Review</button>
                   </a>
+                  <% } else { %>
+                    <td></td>
                   <% } %>
                 </td>
               </tr>
@@ -82,6 +95,7 @@
           <% } else { %>
             <div id="noReviews">
               <h3>No Reviews</h3>
+              </div>
             </div>
             <% } %>
             <% }  %>

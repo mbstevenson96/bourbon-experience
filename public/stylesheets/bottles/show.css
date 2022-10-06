@@ -1,0 +1,125 @@
+#bottle-details-main {
+  text-align: center;
+  margin: 20px;
+}
+
+#bottle-title {
+  font-size: 60px;
+}
+
+section {
+  font-size: 20px;
+}
+
+section > p {
+  letter-spacing: 2px;
+}
+
+btns-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#edit-bottle-show {
+  width: 170px;
+  height: 50px;
+  border-radius: 10px;
+  background-image: url('../../assets/barrel.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-weight: bold;
+  border: #834b16;
+  font-size: 30px;
+  margin-right: 20px;
+}
+
+#go-back-show {
+  width: 130px;
+  height: 50px;
+  border-radius: 10px;
+  background-image: url('../../assets/barrel.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-weight: bold;
+  border: #834b16;
+  font-size: 30px;
+}
+
+#add-review-btn {
+  width: 150px;
+  height: 50px;
+  border-radius: 10px;
+  background-image: url('../../assets/barrel.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-weight: bold;
+  border: #834b16;
+  font-size: 25px;
+  margin-bottom: 30px;
+}
+
+#review-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#reviews {
+  background-image: url('../../assets/reviews.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-top: 60px;
+  max-width: 2000px;
+  width: 450px;
+  height: 300px;
+  border-radius: 15px;
+}
+
+#reviews h2 {
+  font-size: 65px;
+  color: #e8c896;
+}
+
+#review-answers {
+  display: flex;
+  justify-content: center;
+}
+
+#bottle-reviews {
+  color: black;
+  border: 4px solid #834b16;
+  background-color: #e8c896;
+}
+
+#add-review-form {
+  margin-top: 30px;
+}
+
+#review-label-div {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.review-labels {
+  font-size: 20px;
+}
+
+#review-label-div > label > input {
+  opacity: .5;
+  width: 240px;
+  margin: 10px;
+}
+
+#noReviews > h3 {
+  font-size: 50px;
+}
+
+.review-owner-btns {
+  border-radius: 15px;
+  color: white;
+  background-image: url('../../assets/close-barrel.jpg');
+  background-size: cover;
+  border-color: black;
+}

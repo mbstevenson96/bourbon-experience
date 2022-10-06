@@ -13,7 +13,7 @@ thead {
 
 th,
 td {
-  /* empty-cells: show; */
+  empty-cells: show;
   padding: 0 20px;
   letter-spacing: 2px;
 }
@@ -34,6 +34,7 @@ button {
   border-radius: 15px;
   color: white;
   background-image: url('../../assets/close-barrel.jpg');
+  background-size: cover;
   border-color: black;
 }
 

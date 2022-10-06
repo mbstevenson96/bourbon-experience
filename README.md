@@ -23,6 +23,9 @@ The Bourbon Experience is a community where you can track your personal collecti
 - sharing drink image from Andrew Seaman on Unsplash. https://unsplash.com/photos/3Vb7WtHGRes
 - close-barrel image from Mike on Unsplash. https://unsplash.com/photos/05aeUGmSw5w
 - "All Profile" styling from Taco Cat code-along.
+- search bar feature from SEI Students and help from Jackson. 
+- reviews photos from Dylan de Jonge on Unsplash. https://unsplash.com/photos/pe9T4ROjpzQ 
+- barrel picture from Dan Cristian Pădureț on Unsplash. https://unsplash.com/photos/yr71nejQ_-0
 
 
 ## Ice Box:
