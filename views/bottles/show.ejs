@@ -18,7 +18,7 @@
       <p>Hug: <%= bottle.hug %></p>
       <p>On the Tongue: <%= bottle.flavor %></p>
       <p>Quantity Owned: <%= bottle.quantity %></p>
-      <p>Collectable: <%= bottle.collectable ? 'Yes' : 'No' %></p>
+      <p>Collectible: <%= bottle.collectable ? 'Yes' : 'No' %></p>
       <% if (bottle.owner.equals(user?.profile._id)) { %>
         <a href="/bottles/<%= bottle._id %>/edit">
           <button>Edit This Bottle</button>
