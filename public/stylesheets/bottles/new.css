@@ -43,3 +43,13 @@ input {
   border-color: #d2a671;
   border-radius: 10px;
 }
+
+#update-bottle-btn {
+  border-radius: 15px;
+  color: white;
+  background-image: url('../../assets/close-barrel.jpg');
+  background-size: cover;
+  border-color: black;
+  height: 60px;
+  width: 170px;
+}
