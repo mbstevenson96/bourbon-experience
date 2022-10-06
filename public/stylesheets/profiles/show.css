@@ -4,9 +4,6 @@
   width: 100%;
   border-collapse: collapse;
   color: black;
-  border-style: inset;
-  border-color: #b4661a;
-  border-width: 6px;
 }
 
 #table-container2 {
@@ -15,15 +12,18 @@
   width: 100%;
   border-collapse: collapse;
   color: black;
-  border-style: inset;
-  border-color: #b4661a;
-  border-width: 6px;
 }
 
 #inventory-thead,
 #wishes-thead {
   color: white;
   
+}
+
+table {
+  border-style: inset;
+  border-color: #b4661a;
+  border-width: 6px;
 }
 
 th,
@@ -90,4 +90,5 @@ button:hover,
   width: 200px;
   height: 80px;
   font-size: 25px;
+  border-radius: 100px;
 }

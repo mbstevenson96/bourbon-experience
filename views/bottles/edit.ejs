@@ -6,22 +6,22 @@
   <% if (user) { %>
     <h1>Edit <%= bottle.title %></h1>
     <form action="/bottles/<%= bottle._id %>?_method=PATCH" method="POST">
-      <label>Title of Bottle:
+      <label>Name of Bottle:
         <input type="text" name="title" id="title-input" value="<%= bottle.title %>">
       </label>
       <label>Distillery:
         <input type="text" name="distillery" id="distillery-input" value="<%= bottle.distillery %>">
       </label>
-      <label>Spirit:
+      <label>Type of Spirit:
         <input type="text" name="spirit" id="spirit-input" value="<%= bottle.spirit %>">
       </label>
       <label>Size(ml):
         <input type="number" name="size" id="size-input" value="<%= bottle.size %>">
       </label>
-      <label>Notes:
+      <label>Tasting Notes:
         <input type="text" name="notes" id="notes-input" value="<%= bottle.notes %>">
       </label>
-      <label>Type (Bourbon, Rye, Wheated):
+      <label>Type (Corn, Rye, Wheated):
         <input type="text" name="type" id="type-input" value="<%= bottle.type %>">
       </label>
       <label>Mash Bill:

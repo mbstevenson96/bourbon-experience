@@ -31,9 +31,9 @@ function index(req, res) {
   })
 }
 
-function  newBottle(req, res) {
+function newBottle(req, res) {
   res.render('bottles/new', {
-    title: 'Add Bottle to Inventory'
+    title: 'Add Bottle',
   })
 }
 

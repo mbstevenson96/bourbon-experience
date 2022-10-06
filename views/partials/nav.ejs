@@ -8,7 +8,7 @@
   <div id="picture-frame">
   <nav id="nav-bar">
     <% if (user) { %>
-      <a href="profiles/<%= user.profile._id %>" class="nav-a">My Profile</a>
+      <a href="/profiles/<%= user.profile._id %>" class="nav-a">My Profile</a>
       <a href="/profiles" class="nav-a">All Profiles</a>
       <a href="/bottles" class="nav-a">All Bottles</a>
       <% if (user?.profile.avatar) { %>
