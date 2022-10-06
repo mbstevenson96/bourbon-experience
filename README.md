@@ -4,7 +4,7 @@
 ## About:
 The Bourbon Experience is a community where you can track your personal collection, browse your friends' collections, and build your custom wish list. Use this space to connect with your friends and review their collections as well and build your community.
 
-## Link to [Play Game](https://bourbon-experience.fly.dev/)
+## Link to [Play Game](https://bourbon-experience.fly.dev)
 ## Link to [Trello Board](https://trello.com/b/0d7aILLE/bourbon-experience)
 
 ## Technologies Used:

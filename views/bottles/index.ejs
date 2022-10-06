@@ -1,4 +1,5 @@
 <%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/bottles/index.css" />
 <%- include('../partials/nav') %>
 
 
@@ -9,17 +10,17 @@
       method="GET"
       class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3"
     >
-      <input
+      <input id="bottles-search"
         id="search"
         class="form-control form-control-dark"
         type="search"
         name="name"
-        placeholder="Search name..."
+        placeholder="Search creator name..."
         value="<%= name %>"
         autocomplete="off"
       />
     </form>
-    <table>
+    <table id="index-table-container">
       <thead>
         <tr>
           <th>Title of Bottle:</th>
@@ -37,11 +38,11 @@
             <td><%= bottle.size %>ml</td>
             <td><%= bottle.owner.name %></td>
             <td>
-              <button><a href="/bottles/<%= bottle._id %>">Bottle Details</a></button>
+              <button><a href="/bottles/<%= bottle._id %>" id="index-detail-btn-a">Bottle Details</a></button>
             </td>
             <form action="/profiles/<%= user.profile._id %>/addToWish?_method=PATCH" method="POST" name="addToWish">
               <input type="text" name="id" hidden value="<%= bottle._id %>">
-            <td><button type="submit">Add to Your Wish List</button></td>
+            <td><button type="submit">Add to Wish List</button></td>
             </form>
             <% if (bottle.owner.equals(user?.profile._id)) { %>
               <td>
