@@ -13,8 +13,8 @@ const reviewSchema = new Schema( {
 })
 
 const bottleSchema = new Schema({
-  title: String,
-  distillery: String,
+  title: {type: String, required: true},
+  distillery: {type: String, required: true},
   spirit: String,
   size: Number,
   notes: String,
