@@ -9,6 +9,9 @@ The Bourbon Experience is a community where you can track your personal collecti
 
 ## Technologies Used:
 * EJS
+* Mongoose
+* MongoDB
+* Google OAuth
 * JavaScript
 * HTML
 * CSS
