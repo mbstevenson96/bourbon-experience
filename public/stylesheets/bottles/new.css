@@ -1,3 +1,7 @@
+#main-new {
+  margin-top: 50px;
+}
+
 form {
   display: grid;
   grid-gap: 10px;
@@ -31,4 +35,11 @@ input {
   border: 2px solid black;
   border-radius: 20px;
   margin: auto;
+  background-color: #d2a671;
+}
+
+#add-bottle-btn {
+  background-color: #d2a671;
+  border-color: #d2a671;
+  border-radius: 10px;
 }
