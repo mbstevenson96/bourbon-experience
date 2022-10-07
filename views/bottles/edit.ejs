@@ -30,8 +30,9 @@
       <label>Proof:
         <input type="number" name="proof" id="proof-input" value="<%= bottle.proof %>">
       </label>
-      <label>Barrel Strength:
+      <label class="checkbox-container">Barrel Strength:
         <input type="checkbox" name="strength" id="strength-input" value="<%= bottle.strength %>">
+        <span class="checkbox-styling-span"></span>
       </label>
       <label>Color:
         <input type="text" name="color" id="color-input" value="<%= bottle.color %>">
@@ -45,8 +46,9 @@
       <label>Quantity Owned:
         <input type="number" name="quantity" id="quantity-input" value="<%= bottle.quantity %>">
       </label>
-      <label>Collectible:
+      <label class="checkbox-container">Collectible:
         <input type="checkbox" name="collectable" id="collectable-input" value="<%= bottle.collectable %>">
+        <span class="checkbox-styling-span"></span>
       </label>
       <button type="submit" id="update-bottle-btn">Update Bottle</button>
     </form>

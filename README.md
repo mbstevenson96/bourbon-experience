@@ -26,6 +26,7 @@ The Bourbon Experience is a community where you can track your personal collecti
 - search bar feature from SEI Students and help from Jackson. 
 - reviews photos from Dylan de Jonge on Unsplash. https://unsplash.com/photos/pe9T4ROjpzQ 
 - barrel picture from Dan Cristian Pădureț on Unsplash. https://unsplash.com/photos/yr71nejQ_-0
+- Checkbox styling from Stephanie Eckles. https://moderncss.dev/pure-css-custom-checkbox-style/ 
 
 
 ## Ice Box:

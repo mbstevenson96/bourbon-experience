@@ -29,9 +29,9 @@
       <label>Proof:
         <input type="number" name="proof" id="proof-input">
       </label>
-      <label>Barrel Strength:
-        <input type="checkbox" name="strength" id="strength-input">
-        <span class="checkbox-styling"></span>
+      <label class="checkbox-container">Barrel Strength:
+        <input type="checkbox" name="strength" id="strength-input" class="checkbox-inputs">
+        <span class="checkbox-styling-span"></span>
       </label>
       <label>Color:
         <input type="text" name="color" id="color-input">
@@ -45,20 +45,18 @@
       <label>Quantity Owned:
         <input type="number" name="quantity" id="quantity-input">
       </label>
+      <label class="checkbox-container">Collectible:
+        <input type="checkbox" name="collectable" id="collectable-input" class="checkbox-inputs">
+        <span class="checkbox-styling-span"></span>
+      </label>
       <div>
-        <label>Collectible:
-          <input type="checkbox" name="collectable" id="collectable-input">
-          <span class="checkbox-styling"></span>
+        <label class="checkbox-container">Add to Inventory:
+          <input type="checkbox" name="inventory" id="inventory-input" class="checkbox-inputs">
+          <span class="checkbox-styling-span"></span>
         </label>
-      </div>
-      <div>
-        <label>Add to Inventory:
-          <input type="checkbox" name="inventory" id="inventory-input">
-          <span class="checkbox-styling"></span>
-        </label>
-        <label>Add to Wish List:
-          <input type="checkbox" name="wishes" id="wishes-input">
-          <span class="checkbox-styling"></span>
+        <label class="checkbox-container">Add to Wish List:
+          <input type="checkbox" name="wishes" id="wishes-input" class="checkbox-inputs">
+          <span class="checkbox-styling-span"></span>
         </label>
       </div>
       <button type="submit" id="add-bottle-btn">Add Bottle</button>
