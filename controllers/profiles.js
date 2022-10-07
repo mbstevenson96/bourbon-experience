@@ -37,9 +37,7 @@ function show(req, res) {
 function addToWish(req, res) {
   Profile.findById(req.user.profile._id)
   .then(profile => {
-    console.log(profile.wishes);
     profile.wishes.push(req.body.id)
-    console.log(profile.wishes);
     profile.save()
     .then(() => {
       res.redirect(`/profiles/${req.params.id}`)

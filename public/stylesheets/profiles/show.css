@@ -1,12 +1,3 @@
-#fire-img-div {
-  background-image: url('../../assets/fire.jpg');
-  background-size: contain;
-  background-repeat:no-repeat;
-  background-position:fixed;
-  width: 1000px;
-  height: 1000px;
-}
-
 #table-container1 {
   margin-bottom: 40px;
   table-layout: fixed;

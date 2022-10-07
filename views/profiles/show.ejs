@@ -5,7 +5,6 @@
 <main>
   <% if (user) { %>
     <h1 id="welcome-h1"><%= profile.name %>'s profile!</h1>
-    <div id="fire-img-div">
     <% if (profile.bottles?.length) { %>
       <h1 id="inventory-name-h1">Inventory</h1>
       <div id="table-container1">
@@ -87,7 +86,6 @@
     <% if (isSelf) { %>
       <button id="add-new-bottle-btn"><a href="/bottles/new" id="add-new-bottle-a">Add New Bottle</a></button>
     <% } %>
-    </div>
   <% } %>
 </main>
 

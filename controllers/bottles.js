@@ -59,10 +59,6 @@ function create(req, res) {
         res.redirect(`/bottles`)
       })
     })
-    .catch(err => {
-      console.log(err)
-      res.redirect('/')
-    })
   })
   .catch(err => {
     console.log(err)
@@ -133,10 +129,6 @@ function createReview(req, res) {
     .then(() => {
       res.redirect(`/bottles/${bottle._id}`)
     })
-    .catch(err => {
-      console.log(err)
-      res.redirect('/')
-    })
   })
   .catch(err => {
     console.log(err)
@@ -163,7 +155,6 @@ function deleteBottle(req, res) {
 }
 
 function editReview(req, res) {
-  console.log('Thi is my edit review function!');
   Bottle.findById(req.params.bottleId)
   .then(bottle => {
     const review = bottle.reviews.id(req.params.reviewId)
@@ -180,7 +171,6 @@ function editReview(req, res) {
 }
 
 function updateReview(req, res) {
-  console.log('this is my update review function!');
   Bottle.findById(req.params.bottleId)
   .then(bottle => {
     const review = bottle.reviews.id(req.params.reviewId)
@@ -205,10 +195,6 @@ function deleteReview(req, res) {
     bottle.save()
     .then(() => {
       res.redirect(`/bottles/${bottle._id}`)
-    })
-    .catch(err => {
-      console.log(err)
-      res.redirect('/')
     })
   })
   .catch(err => {
